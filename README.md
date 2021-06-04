@@ -1,27 +1,21 @@
 # Ngrxbutton
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
+##Here are shown the steps to create this button that fetches it's innerText from backend and manage the state of application.
 
-## Development server
+First: We need to import StoreModule from '@ngrx/store'.
+Second_ We need to import EffectsModule from '@ngrx/effects'.
+Third: We need to import the HttpClientModule to be able to perform http calls.
+Fourth We have to create a Service to manages the HTTP calls.
+Fifth: store service must be injected in every component. As we are working at the root for sake of simplicity, we inject Store module in the app.component.ts 
+We create a method that dispatch a function getName.
+In the action.buttons we need to import 'createAction' and 'props' from '@ngrx/store'.
+we create to createAction methods. and for 'getName' and other for 'nameLoaded'
+We need to create a reducer.button.ts file, and import 'createReducer' and 'on' from '@ngrx/store'
+we have to import 'getName' and 'nameLoaded' from actions.
+We have to set the initialState, then make use of the 'createReducer' method and pass the initial state and listen to the 'getName' and 'nameLoaded', then export that functions.
+We need to create a 'effect.button.ts' and import: 'Injectable0', 'Actions', createEffects', 'ofType', 'getName', 'nameLoaded', then we need from '@angular/core', '@ngrx/effects' and 'action.button'. then we have to import 'map', mergeMap from 'rxjs/operators', and buttonService from button.service.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+After all this steps, we can start developing the code.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
