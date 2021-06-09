@@ -6,20 +6,22 @@ import { StoreModule } from '@ngrx/store';
 import { buttonReducer } from './ngrx/reducers/reducer.button';
 import { EffectsModule } from '@ngrx/effects';
 import { ButtonsEffects } from './ngrx/effects/effect.button';
- 
+import { ButtonModule } from './components/button/button.module';
+
 import { ButtonService } from './services/button.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [BrowserModule,
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
     HttpClientModule,
+    ButtonModule,
     StoreModule.forRoot({ button: buttonReducer }),
     EffectsModule.forRoot([ButtonsEffects]),
-    AppRoutingModule],
+    AppRoutingModule,
+  ],
   providers: [ButtonService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
